@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" href="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/TANAUAN.png"
+        type="image/x-icon">
+    <title>Login Page</title>
+    <style>
+        body {
+            background: linear-gradient(rgba(255, 40, 79, 0.651), rgba(16, 61, 183, 0.61)), url(https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/maxresdefault.jpg);
+            background-size: cover;
+            background-position: center;
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            margin: 0;
+            height: 100vh;
+        }
+
+        .navbar {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            background-color: #f5f3f3;
+            top: 0;
+            left: 0;
+            width: 100%;
+            position: fixed;
+            align-items: center;
+            z-index: 99;
+            height: 90px;
+            border-bottom: 2px solid rgba(11, 0, 39, 0.068);
+        }
+
+        .navbar .nav-link {
+            top: 20px;
+            font-size: 1.3em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #b21718;
+            text-decoration: none;
+            position: relative;
+            float: right;
+            right: 10%;
+        }
+
+        .navbar .nav-link:hover {
+            color: #ffc107;
+        }
+
+        #home {
+            min-height: 95vh;
+            display: flex;
+            align-items: flex-end;
+            margin-left: 75px;
+            font-size: medium;
+        }
+
+        div.logo-container {
+            margin-top: 5vh;
+        }
+
+        #home h1 {
+            font-weight: 700;
+            font-size: 3em;
+            color: #f5f3f3;
+        }
+
+        .container-fluid {
+            background-color: black;
+        }
+
+        .infinity-image-container {
+            background: url('bg.jpg') center no-repeat;
+            background-size: cover;
+            opacity: 0.6;
+            height: 100vh;
+        }
+
+        .infinity-form-container {
+            background: #31335d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .infinity-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .infinity-form h4 {
+            font-weight: bold;
+            color: white;
+        }
+
+        .infinity-form .form-input {
+            position: relative;
+        }
+
+        .infinity-form .form-input input {
+            width: 100%;
+            margin-bottom: 20px;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            background: white;
+            padding-left: 45px;
+        }
+
+        .infinity-form .form-input span {
+            position: absolute;
+            top: 8px;
+            padding-left: 20px;
+            color: #777;
+        }
+
+        .infinity-form .form-input input:focus,
+        .infinity-form .form-input input:valid {
+            border: 2px solid #4285f4;
+        }
+
+        .infinity-form input[type="checkbox"]:not(:checked)+label:before {
+            background: transparent;
+            border: 2px solid white;
+            width: 15px;
+            height: 15px;
+        }
+
+        .infinity-form .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+            background-color: #4285f4 !important;
+            border: 0px;
+        }
+
+        .infinity-form button[type="submit"] {
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            background: linear-gradient(45deg, #4285f4, #709de8);
+            /*Button Color*/
+            color: #fff;
+            font-weight: bold;
+            transition: 0.5s;
+        }
+
+        .infinity-form button[type="submit"]:hover {
+            background: linear-gradient(45deg, #709de8, #4285f4);
+            /*Button color when hover*/
+        }
+
+        .forget-link,
+        .login-link,
+        .register-link {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .forget-link:hover,
+        .login-link:hover,
+        .register-link:hover {
+            color: #4285f4;
+            text-decoration: none;
+        }
+
+        .infinity-form .btn-social {
+            color: white;
+            border: 0;
+            display: inline-block;
+            margin: 0px;
+            margin-right: 10px;
+            font-weight: bold;
+            padding: 0px;
+            margin-bottom: 10px;
+        }
+
+        .infinity-form .btn-social:hover {
+            text-decoration: underline;
+        }
+
+        .infinity-form .btn-facebook:hover {
+            color: hsla(221, 40%, 40%, 1);
+        }
+
+        .infinity-form .btn-google:hover {
+            color: hsla(4, 59%, 47%, 1);
+        }
+
+        .infinity-form .btn-twitter:hover {
+            color: hsla(195, 78%, 54%, 1);
+        }
+
+        #home p {
+            max-width: 550px;
+            margin: 18px auto;
+            color: #f5f3f3;
+            font-size: 1.2em;
+        }
+
+        span {
+            color: #f89b31;
+            font-size: 1.5em;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 30vh;
+            background-size: cover;
+            background-position: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .logo-container img {
+            width: 90%;
+            border-radius: 50%;
+            margin-top: -170px;
+        }
+
+        .login-container {
+            background-color: #f5f3f3;
+            text-align: center;
+            margin-top: auto;
+            padding: 20px 30px;
+            width: 490px;
+            position: fixed;
+            height: 100%;
+            box-shadow: 0px 0px 10px rgba(216, 11, 11, 0.5);
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .form-input {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .form-input input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .form-input span {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 10px;
+            color: #777;
+        }
+
+        .form-input input:focus,
+        .form-input input:valid {
+            border: 2px solid #4285f4;
+        }
+
+        .btn-block {
+            border: none;
+            background-color: #f89b31;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.5s;
+        }
+
+        .btn-block:hover {
+            background-color: #709de8;
+        }
+
+        .form-group input {
+            width: 240px;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .form-group button {
+            width: 55%;
+            height: 40px;
+            padding: 5px;
+            border: none;
+            background-color: #f89b31;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .form-group button:hover {
+            background-color: #9c5d15;
+        }
+
+        .forgot-password,
+        .create-account {
+            color: #EBA814;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .login-container a {
+            color: #f89b31;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+
+        .link-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .form-input span {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 10px;
+            color: #777;
+            z-index: 1;
+            /* Ensure the icon is above the input */
+        }
+
+        .form-input span i {
+            font-size: 16px;
+            /* Adjust the size as needed */
+        }
+
+        .form-input input {
+            padding-left: 30px;
+            /* Adjust the padding to make room for the icon */
+        }
+
+        @media only screen and (max-width: 600px) {
+            .login-container {
+                padding: 0px 20px;
+            }
+
+            .logo-container img {
+                width: 90%;
+                border-radius: 50%;
+                margin-top: 90px;
+            }
+        }
+
+        @media only screen and (max-width: 400px) {
+            .login-container {
+                padding: 0px 20px;
+            }
+
+            div.logo-container {
+                margin-top: -8vh;
+                margin-left: 35px;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .login-container {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .custom-control-label {
+                font-size: 0.8em;
+            }
+
+            form.px-3 {
+                margin-left: 40px;
+                margin-top: -55px;
+            }
+
+            .btn-block {
+                width: 100%;
+            }
+
+            .login-container img {
+                width: 70%;
+                margin-top: 30px;
+            }
+        }
+
+        a.btn.btn-block {
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+    <nav class="navbar navbar-inverse">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <a class="nav-link" href="C:\Users\PC\Downloads\index.html">Home</a>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/ISKONNECT%20(1).png" alt="Logo">
+        </div>
+        <h2></h2>
+        <form class="px-3" style="margin-top: -10vh;">
+            <!-- Input Box -->
+            <div class="form-input">
+                <span><i class="fa fa-envelope-o"></i></span>
+                <input type="email" name="" placeholder="Email Address" tabindex="10" required>
+            </div>
+            <div class="form-input">
+                <span><i class="fa fa-lock"></i></span>
+                <input type="password" name="" placeholder="Password" required>
+            </div>
+            <div class="row mb-3">
+                <!-- Remember Checkbox -->
+                <div class="col-auto d-flex align-items-center">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" style="margin-bottom: 1.5vh;" id="cb1">
+                        <label class="custom-control-label text-white" for="cb1">Remember me</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Login Button -->
+            <div class="mb-3">
+                <a href="C:\Users\PC\Desktop\updated3.0\profile2.0.html" class="btn btn-block">Login</a>
+            </div>
+            <div class="text-right" style="margin-top: 2vh;">
+                <a href="C:\Users\PC\Desktop\updated3.0\password_forgot.html" class="forget-link">Forgot password?</a>
+            </div>
+
+            <div class="text-center mb-5 text-white" style="margin-top: 1vh;">Don't have an account yet?
+                <a class="register-link" href="C:\Users\PC\Downloads\Sign Up.html">Sign up</a>
+            </div>
+        </form>
+    </div>
+
+    <section id="home">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <h1 class="text-white display-4"><span>Tanauan City <br></span> Scholarship Program</h1>
+                    <p class="text-white">"Education is the key that unlocks the doors of opportunity, and
+                        scholarships are
+                        the catalyst that ignites the flames of brilliance."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+
+</html>

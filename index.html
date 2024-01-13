@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   <link rel="icon" href="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/TANAUAN.png"
+      type="image/x-icon">
+   <title>T-Iskonnect</title>
+   <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
+
+      body {
+         line-height: 1.8;
+         color: #202020;
+         font-size: 15px;
+         font-family: 'Lato', sans-serif;
+         z-index: 99;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+         font-weight: 700;
+         letter-spacing: 1px;
+         text-transform: uppercase;
+         color: #2d313a;
+      }
+
+      html {
+         scroll-behavior: smooth;
+      }
+
+      ::-webkit-scrollbar {
+         width: 12px;
+         background: #0c3542;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background-color: rgb(255, 255, 255);
+         border-radius: 2em;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+         background: #dbd9d9;
+      }
+
+      .title-sm {
+         font-size: 16px;
+         letter-spacing: 1px;
+      }
+
+      a {
+         font-weight: 700;
+         transition: all 0.4s ease;
+         text-decoration: none;
+      }
+
+      img {
+         width: 100%;
+      }
+
+      small {
+         font-size: 12px;
+         letter-spacing: 2px;
+         font-weight: 700;
+         text-transform: uppercase;
+      }
+
+      .text-white {
+         color: '';
+      }
+
+      section {
+         padding-top: 100px;
+         padding-bottom: 100px;
+      }
+
+      .navbar {
+         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+         box-shadow: 0px 3px 2px #720b4a;
+         background: #f5f3f3;
+         top: 0;
+         left: 0;
+         position: fixed;
+         align-items: center;
+         z-index: 2;
+         height: 90px;
+      }
+
+      .shrink-navbar {
+         height: 75px;
+         transition: height 0.3s ease;
+      }
+
+
+      .logo-text {
+         font-size: 22px;
+         text-transform: uppercase;
+         color: #ffc107 !important;
+      }
+
+      .navbar .nav-link {
+         font-size: 0.9em;
+         text-transform: uppercase;
+         letter-spacing: 1px;
+         font-weight: 400;
+         color: #181818;
+      }
+
+      .btnLogin-popup {
+         width: 110px;
+         height: 50px;
+         background: #b21718;
+         border: none;
+         outline: none;
+         border-radius: 7px;
+         cursor: pointer;
+         font-size: 1.1em;
+         color: white;
+         font-weight: 500;
+         margin-top: -0.5vh;
+         margin-left: 2vh;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+
+      .btnLogin-popup:hover {
+         color: white;
+         background: #E42A2A;
+         font-weight: 500;
+      }
+
+      .navbar-light .navbar-nav .nav-link.active {
+         color: #E42A2A;
+      }
+
+      span {
+         color: #EBA814;
+         font-size: 2.3em;
+         font-weight: 900;
+      }
+
+      button.navbar-toggler {
+         font-size: 1.5em;
+         right: 10px;
+         top: 25px;
+         position: absolute;
+         color: #fff;
+         background: transparent;
+         border: none;
+         cursor: pointer;
+         transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      button.navbar-toggler:hover {
+         color: #eba814;
+      }
+
+      button.navbar-toggler:focus {
+         outline: none;
+      }
+
+      .navbar-toggler-icon-bar {
+         width: 30px;
+         height: 3px;
+         background-color: #844e76;
+         margin: 6px 0;
+         transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      button.navbar-toggler:hover .navbar-toggler-icon-bar {
+         background-color: #eba814;
+      }
+
+      button.navbar-toggler.active {
+         color: #d30d0d;
+      }
+
+      button.navbar-toggler.active .navbar-toggler-icon-bar {
+         transform: rotate(1);
+         opacity: 1;
+      }
+
+      button.navbar-toggler.active .navbar-toggler-icon-bar:nth-child(1) {
+         transform: translateY(6px) rotate(-45deg);
+      }
+
+      button.navbar-toggler.active .navbar-toggler-icon-bar:nth-child(2) {
+         visibility: hidden;
+      }
+
+      button.navbar-toggler.active .navbar-toggler-icon-bar:nth-child(3) {
+         transform: translateY(-6px) rotate(45deg);
+      }
+
+      button.navbar-toggler .navbar-toggler-icon-bar {
+         transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      button.navbar-toggler .navbar-toggler-icon-bar:hover {
+         background-color: #eba814;
+      }
+
+      #home {
+         background: linear-gradient(180deg, rgba(230, 13, 13, 0.5) 5%, rgba(21, 39, 139, 0.6) 100%), url(https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/maxresdefault.jpg);
+         min-height: 100vh;
+         background-size: cover;
+         background-position: center;
+         background-attachment: fixed;
+         background-repeat: no-repeat;
+         display: flex;
+         align-items: center;
+      }
+
+      #home h1 {
+         font-weight: 700;
+         color: #ffffff;
+         font-size: 2.8em;
+      }
+
+      #home p {
+         max-width: 550px;
+         margin: 18px auto;
+         color: white;
+      }
+
+      .section-intro {
+         text-align: center;
+         margin-bottom: 60px;
+      }
+
+      .section-intro .hline {
+         width: 120px;
+         height: 2px;
+         background-color: gold;
+         margin: 16px auto 0 auto;
+      }
+
+      .icon-box {
+         width: 60px;
+         height: 60px;
+         background-color: #268ceb;
+         color: #fff;
+         border-radius: 4px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-size: 32px;
+         flex: none;
+      }
+
+      .assistance-item img,
+      .assistance-item .assistance-overlay {
+         transition: all 0.4s ease;
+         width: 100%;
+         height: auto;
+      }
+
+      .assistance-overlay {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(17, 36, 90, 0.9);
+         display: flex;
+         align-items: flex-end;
+         padding: 30px;
+         opacity: 0;
+      }
+
+      .assistance-overlay h3,
+      .assistance-overlay h6 {
+         color: #fff;
+      }
+
+      .assistance-item:hover .assistance-overlay {
+         opacity: 1;
+      }
+
+      .assistance-item:hover img {
+         transform: scale(1.1);
+      }
+
+      .requirements .icon-box {
+         width: 34px;
+         height: 34px;
+         border-radius: 100px;
+         font-size: 24px;
+      }
+
+      .footer {
+         padding-top: 30px;
+         padding-bottom: 30px;
+         border-top: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .logo-image {
+         width: 20%;
+         height: 10%;
+      }
+
+      .popup-container {
+         position: relative;
+      }
+
+      .image {
+         cursor: pointer;
+         max-width: 100%;
+         height: auto;
+         transition: transform 0.2s;
+      }
+
+      .image:hover {
+         transform: scale(1.1);
+      }
+
+      .assistance-list img .assistance .container .content {
+         width: 100%;
+      }
+
+      section#assistance.assistance.section {
+         background: #f5f3f3;
+      }
+
+      .assistance-list {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 35px;
+         justify-content: center;
+         margin: 0 auto;
+         position: relative;
+         z-index: 1;
+      }
+
+      .form-box.login img {
+         margin-bottom: -5vh;
+      }
+
+      .img-card-container {
+         flex: 1;
+         max-width: calc(33.33% - 35px);
+         box-sizing: border-box;
+         position: relative;
+         margin-bottom: 35px;
+      }
+
+      .assistance-list .img-card {
+         position: relative;
+         max-width: 100%;
+         height: 360px;
+         border-radius: 10px;
+         box-shadow: var(--third-color);
+         overflow: hidden;
+         cursor: pointer;
+      }
+
+      .assistance-list .img-card .overlay {
+         transition: 1s ease;
+      }
+
+      .assistance-list .img-card:hover .overlay {
+         z-index: 777;
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         background: var(--bg-transparent-color);
+      }
+
+      .assistance-list .img-card .info {
+         z-index: 777;
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         margin: 20px;
+         color: var(--scroll-down-color);
+         transform: translateY(20px);
+         opacity: 0;
+         transition: .5s ease;
+      }
+
+      .assistance-list .img-card:hover .info {
+         transform: translateY(0);
+         opacity: 1;
+      }
+
+      .assistance-list .img-card .info h3 {
+         font-size: 1.5em;
+      }
+
+      .assistance-list .img-card .info span {
+         font-size: 1.2em;
+      }
+
+      .assistance-list .img-card .info span,
+      .assistance-list .img-card .info h3 {
+         z-index: 1;
+      }
+
+      .assistance-list .img-card img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         border: 2px solid #cd961a;
+         border-radius: 15px;
+      }
+
+      .assistance-model {
+         z-index: 1000;
+         position: fixed;
+         width: 100%;
+         height: 100vh;
+         top: 0;
+         left: 0;
+         background: var(--bg-transparent-color);
+         backdrop-filter: blur(20px);
+         visibility: hidden;
+         opacity: 0;
+         transition: .3s ease;
+      }
+
+      .assistance-model.active {
+         visibility: visible;
+         opacity: 1;
+      }
+
+      .assistance-model-body {
+         position: relative;
+         background: linear-gradient(147deg, rgba(219, 9, 9, 0.9) 0%, rgba(12, 53, 66, .9) 80%);
+         max-width: 800px;
+         margin: 20px auto;
+         padding: 40px;
+         margin-top: 20vh;
+         border-radius: 10px;
+         transition: .5s ease;
+         transform: translateY(-50px);
+      }
+
+      .assistance-model.active .assistance-model-body {
+         transform: translateY(0);
+      }
+
+      .assistance-close-btn {
+         position: absolute;
+         top: 0;
+         right: 0;
+         margin: 20px;
+         cursor: pointer;
+         color: white;
+      }
+
+      .assistance-close-btn:hover {
+         color: #eba325;
+      }
+
+      .assistance-model-body h3 {
+         font-size: 2em;
+         font-weight: bolder;
+         color: var(--first-color);
+         text-align: center;
+      }
+
+      .assistance-model-body p {
+         color: #ffffff;
+         text-align: center;
+      }
+
+      .assistance-model-body img {
+         width: 75%;
+         margin: 20px 85px;
+         border-radius: 10px;
+      }
+
+      .table-box {
+         margin: 50px auto;
+      }
+
+      .table-row {
+         display: table;
+         width: 80%;
+         margin: 10px auto;
+         font-family: sans-serif;
+         background: transparent;
+         padding: 12px 0;
+         color: #555;
+         font-size: 13px;
+         box-shadow: 0 1px 4px 0px rgba(0, 0, 50, 0.3);
+      }
+
+      .table-head {
+         background: linear-gradient(90deg, rgb(189, 3, 3) 0%, rgba(12, 53, 66, 1) 80%);
+         box-shadow: none;
+         color: #fff;
+         font-weight: 600;
+         margin-top: 10vh;
+      }
+
+      .table-head .table-cell {
+         border-right: none;
+      }
+
+      .table-cell {
+         display: table-cell;
+         width: 20%;
+         text-align: center;
+         padding: 4px 0;
+         border-right: 1px solid #d6d4d4;
+         vertical-align: middle;
+      }
+
+      .first-cell {
+         text-align: center;
+         padding-left: 10px;
+      }
+
+      .last-cell {
+         border-right: none;
+      }
+
+      a {
+         text-decoration: none;
+         color: #555;
+      }
+
+
+      section#events h1 {
+         display: flex;
+         padding: 0;
+         left: 0;
+         right: 0;
+         position: absolute;
+         justify-content: center;
+         font-size: 3rem;
+         color: #b50303;
+      }
+
+      .assistance span1 {
+         color: #f89b31;
+         font-size: 1.2rem;
+         font-weight: 700;
+      }
+
+      .assistance span {
+         color: #ffffff;
+         font-size: 1.2rem;
+         font-weight: 700;
+      }
+
+      .apply-button {
+         padding: 10px 20px;
+         font-size: 16px;
+         background-color: #eba325;
+         color: white;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+
+      .apply-button:hover {
+         color: #0C3542;
+         border: 2px solid #ffffff;
+         transition: transform .5s ease;
+      }
+
+      .img-card-container h3 {
+         color: #eba325;
+      }
+
+      .scroll-to-top {
+         position: fixed;
+         bottom: 25px;
+         right: 25px;
+         display: none;
+         font-size: 10px;
+         border: none;
+         outline: none;
+         background-color: #0c3542e0;
+         color: #fff;
+         cursor: pointer;
+         border-radius: 20%;
+         padding: 10px;
+         z-index: 999999;
+         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+         transition: background-color 0.3s;
+      }
+
+      .scroll-to-top:hover {
+         background-color: #b21718;
+      }
+
+      .wrapper {
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         width: 400px;
+         max-width: 80%;
+         height: 500px;
+         max-height: 80vh;
+         background-color: #0c3542;
+         border: 2px solid rgba(255, 255, 255, 0);
+         border-radius: 20px;
+         box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         transform: translate(-50%, -50%) scale(0);
+         opacity: 0;
+         transition: transform 0.5s ease, opacity 0.5s ease;
+         z-index: 10000;
+         backdrop-filter: blur(30px);
+      }
+
+      .wrapper.active-popup {
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%) scale(1);
+         background-color: #f5f3f3;
+         border: 2px solid rgba(255, 255, 255, 0);
+         border-radius: 20px;
+         box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         opacity: 1;
+         transition: transform 0.5s ease, opacity 0.5s ease;
+         backdrop-filter: blur(30px);
+         z-index: 10000;
+      }
+
+
+      .wrapper .assistance-close-btn {
+         position: absolute;
+         top: 0;
+         right: 0;
+         width: 45px;
+         height: 45px;
+         font-size: 2em;
+         color: #cc0d10;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         z-index: 1;
+
+      }
+
+      .wrapper .assistance-close-btn:hover {
+         color: #eba325;
+      }
+
+      .wrapper a {
+         color: #eba325;
+      }
+
+      .wrapper h7 {
+         color: #0c3542;
+      }
+
+      .wrapper span {
+         color: #eba325;
+         font-size: 1em;
+      }
+
+      .wrapper .form-box {
+         display: flex;
+         width: 100%;
+         padding: 40px;
+         flex-direction: column;
+         align-items: center;
+      }
+
+      .button .btnapplicant {
+         background: linear-gradient(90deg, rgb(185, 5, 5) 0%, rgba(12, 53, 66, 1) 80%);
+         color: white;
+         border-radius: 5px;
+         width: 160px;
+         height: 40px;
+         margin-bottom: 1vh;
+         font-size: 1em;
+         border: none;
+         margin-top: -1vh;
+      }
+
+      .btnmaintainer {
+         background: #ababab;
+         color: white;
+         border-radius: 5px;
+         width: 160px;
+         height: 40px;
+         margin-bottom: 1vh;
+         font-size: 1em;
+         border: none;
+      }
+
+      .btnmaintainer:hover {
+         color: #0c3542;
+      }
+
+      .btnapplicant:hover {
+         color: #eba325;
+      }
+
+      @media only screen and (max-width: 991px) {
+         button.btnLogin-popup {
+            margin-top: 35px;
+            margin-left: 38%;
+         }
+
+         .btnLogin-popup {
+            margin-left: 50px;
+            margin-top: 3vh;
+            width: 85%;
+            ;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+         }
+
+         .navbar-toggler {
+            right: 10px;
+            top: 10px;
+         }
+
+         img {
+            margin-bottom: -50px;
+         }
+
+         .img-fluid {
+            max-width: 100%;
+            height: auto;
+            top: -30px;
+            left: -15px;
+            position: relative;
+         }
+
+         .navbar .nav-link {
+            text-align: center;
+            margin-top: 50px;
+         }
+
+         .ms-auto {
+            margin-left: auto !important;
+            background: #f3f3f3;
+            border-radius: 20px;
+            height: 50vh;
+            margin-top: 15vh;
+         }
+
+      }
+
+      .overlay {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: linear-gradient(180deg, rgba(230, 13, 13, 0.5) 5%, rgba(21, 39, 139, 0.6) 100%), url(https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/maxresdefault.jpg) center/cover fixed no-repeat;
+         filter: blur(3px);
+         z-index: 2;
+         display: none;
+      }
+
+      .active-overlay {
+         display: block;
+      }
+
+      body.popup-open {
+         overflow: hidden;
+      }
+
+      #help {
+         padding: 50px 0;
+         background: url(https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/marbols.png);
+         background-size: cover;
+         background-attachment: fixed;
+      }
+
+      .need {
+         color: #333;
+      }
+
+      .help {
+         color: #666;
+      }
+
+      .category {
+         margin-top: 20px;
+         font-size: 24px;
+         font-weight: bold;
+         color: #333;
+      }
+
+      .accordion-button {
+         background: #fff;
+      }
+
+      .accordion-button:hover {
+         background-color: #1a6eaa99;
+         color: #fff;
+      }
+
+      .accordion-item {
+         margin-top: 10px;
+      }
+
+      .accordion-body {
+         background-color: #f8f9fa;
+         color: #333;
+         padding: 15px;
+         border: 1px solid #ddd;
+      }
+
+      .accordion-body p {
+         margin-bottom: 0;
+      }
+
+      .about-us {
+         height: 100vh;
+         width: 100%;
+         padding: 90px 0;
+         background: url(https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/marbols.png);
+         background-size: cover;
+         background-attachment: fixed;
+      }
+
+      .pic {
+         height: auto;
+         width: 50%;
+         margin-right: 25px;
+         border-radius: 20px;
+      }
+
+      .about {
+         width: 1130px;
+         max-width: 85%;
+         margin: 100px auto;
+         display: flex;
+         align-items: center;
+         justify-content: space-around;
+      }
+
+      .text {
+         width: 540px;
+      }
+
+      .text h2 {
+         font-size: 90px;
+         font-weight: 600;
+         margin-bottom: 10px;
+         color: #0c3542;
+      }
+
+      .text h5 {
+         font-size: 22px;
+         font-weight: 500;
+         margin-bottom: 20px;
+         color: #b21718;
+      }
+
+      .text p {
+         font-size: 18px;
+         line-height: 25px;
+         letter-spacing: 1px;
+      }
+
+      .data {
+         margin-top: 30px;
+      }
+
+      .hire {
+         font-size: 18px;
+         background: #0c3542;
+         color: #fff;
+         text-decoration: none;
+         border: none;
+         padding: 8px 25px;
+         border-radius: 6px;
+         transition: 0.5s;
+      }
+
+      .hire:hover {
+         background: #cd910d;
+      }
+
+      h1.need span {
+         font-weight: 700;
+         font-size: 2.5rem;
+         text-transform: lowercase;
+         letter-spacing: 1px;
+         color: #2d313a;
+      }
+
+      .accordion-button:not(.collapsed) {
+         background: #284c57;
+         color: white;
+      }
+
+      @media only screen and (max-width: 600px) {
+         .table-row {
+            font-size: 11px;
+         }
+
+         .about {
+            flex-direction: column;
+         }
+
+         .pic {
+            margin-right: 0;
+            width: 85%;
+         }
+
+         .text h2 {
+            font-size: 50px;
+            margin-top: 7vh;
+         }
+
+         .text h5 {
+            font-size: 25px;
+         }
+
+      }
+
+      @media only screen and (max-width: 490px) {
+         .navbar .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+         }
+
+         .btnLogin-popup {
+            margin-left: 30px;
+            margin-top: 3vh;
+            width: 85%;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+         }
+
+         section#events h1 {
+            font-size: 1.7rem;
+         }
+
+         span {
+            font-size: 1em;
+         }
+
+         .assistance-model-body {
+            width: 360px;
+         }
+
+         .assistance span1 {
+            font-size: 1em;
+         }
+
+         .img-fluid {
+            top: -5px;
+            left: 10px;
+         }
+
+         .form-box.login img {
+            margin-bottom: -2vh;
+         }
+
+         img {
+            margin-bottom: -10px;
+         }
+
+         .img-card-container h3 {
+            font-size: 1.2em;
+         }
+
+         .assistance-list {
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+         }
+
+         .img-card-container {
+            max-width: 80%;
+         }
+
+         ul.navbar-nav.ms-auto {
+            background: #f3f3f3;
+            border-radius: 20px;
+            height: 60vh;
+            margin-top: 15vh;
+         }
+
+         .assistance-list .img-card .info span,
+         .assistance-list .img-card .info h3 {
+            display: none;
+         }
+
+         .text {
+            width: 320px;
+         }
+
+         .about-us {
+            height: 135vh;
+         }
+
+         .pic {
+            margin-top: -10vh;
+         }
+      }
+   </style>
+</head>
+
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+   <div class="overlay"></div>
+   <div class="overlay-blur"></div>
+   <button id="scrollToTopBtn" class="btn btn-primary scroll-to-top"><i class="material-icons">arrow_upward</i></button>
+
+   <nav class="navbar fixed-top navbar-expand-lg navbar-light shrink-navbar">
+      <div class="container">
+         <a class="navbar-brand" href="">
+            <div class="logo-image">
+               <img src="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/ISKONNECT%20(1).png"
+                  class="img-fluid">
+            </div>
+         </a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="navbar-toggler-icon-bar"></div>
+            <div class="navbar-toggler-icon-bar"></div>
+            <div class="navbar-toggler-icon-bar"></div>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+               <a class="nav-link" href="#home">Home</a>
+               <a class="nav-link" href="#about">About</a>
+               <a class="nav-link" href="#events">Events</a>
+               <a href="C:\Users\PC\Downloads\Login Page.html" class="btnLogin-popup">Login</a>
+
+            </ul>
+         </div>
+      </div>
+   </nav>
+
+   <div id="loadingOverlay">
+      <p>Loading...</p>
+   </div>
+
+   <section id="home">
+      <div class="container text-center">
+         <div class="row justify-content-center">
+            <div class="col-md-10">
+               <h1><span>Tanauan City <br></span>Scholarship Program</h1>
+               <p>"Education is the key that unlocks the doors of opportunity, and scholarships are
+                  the catalyst that ignites the flames of brilliance."</p>
+            </div>
+         </div>
+      </div>
+   </section>
+
+
+   <section class="about-us" id="about">
+      <div class="about">
+         <img
+            src="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/415105559_889156462951193_2073329761153994493_n.jpg"
+            class="pic">
+         <div class="text">
+            <h2>Iskonnect</h2>
+            <h5>Web-based Scholarship System</h5>
+            <p>A website platform that aims to ease burdens in terms of scholarship activities to the scholars and city
+               government in Tanauan City. This innovation digitalized application and submission procedures in
+               submitting requirements for scholarship.</p>
+            <div class="data">
+               <a href="#help" class="hire">How to apply?</a>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section id="events">
+      <div class="col-md-10">
+         <h1>Schedule of Events</h1>
+      </div>
+      <div class="table-box">
+         <div class="table-row table-head">
+            <div class="table-cell first-cell">
+               <p>Date</p>
+            </div>
+            <div class="table-cell">
+               <p>Time</p>
+            </div>
+            <div class="table-cell">
+               <p>Venue</p>
+            </div>
+            <div class="table-cell last-cell">
+               <p>Event</p>
+            </div>
+         </div>
+
+
+         <div class="table-row">
+            <div class="table-cell first-cell">
+               <p></p>
+            </div>
+            <div class="table-cell">
+               <p></p>
+            </div>
+            <div class="table-cell">
+               <p></p>
+            </div>
+            <div class="table-cell last-cell">
+               <a></a>
+            </div>
+         </div>
+
+
+         <div class="table-row">
+            <div class="table-cell first-cell">
+               <p></p>
+            </div>
+            <div class="table-cell">
+               <p></p>
+            </div>
+            <div class="table-cell">
+               <p></p>
+            </div>
+            <div class="table-cell last-cell">
+               <a></a>
+            </div>
+         </div>
+
+         <div class="table-row">
+            <div class="table-cell first-cell">
+               <p></p>
+            </div>
+            <div class="table-cell">
+               <p></p>
+            </div>
+            <div class="table-cell">
+               <p></p>
+            </div>
+            <div class="table-cell last-cell">
+               <a></a>
+            </div>
+         </div>
+
+         <div class="table-row">
+            <div class="table-cell first-cell">
+               <p></p>
+            </div>
+            <div class="table-cell">
+               <p></p>
+            </div>
+            <div class="table-cell">
+               <p></p>
+            </div>
+            <div class="table-cell last-cell">
+               <a></a>
+            </div>
+         </div>
+
+         <div class="table-row">
+            <div class="table-cell first-cell">
+               <p></p>
+            </div>
+            <div class="table-cell">
+               <p></p>
+            </div>
+            <div class="table-cell">
+               <p></p>
+            </div>
+            <div class="table-cell last-cell">
+               <a></a>
+            </div>
+         </div>
+
+         <div class="table-row">
+            <div class="table-cell first-cell">
+               <p></p>
+            </div>
+            <div class="table-cell">
+               <p></p>
+            </div>
+            <div class="table-cell">
+               <p></p>
+            </div>
+            <div class="table-cell last-cell">
+               <a></a>
+            </div>
+         </div>
+
+         <div class="table-row">
+            <div class="table-cell first-cell">
+               <p></p>
+            </div>
+            <div class="table-cell">
+               <p></p>
+            </div>
+            <div class="table-cell">
+               <p></p>
+            </div>
+            <div class="table-cell last-cell">
+               <a></a>
+            </div>
+         </div>
+
+   </section>
+
+   <section id="help">
+      <div class="container">
+         <div class="nh">
+            <h1 class="need"> <span>ⓘ</span> Needed assistance?</h1>
+            <p class="help">Accessibility FAQs for Tanauan Iskonnect</p>
+         </div>
+
+         <div class="category">Account Management</div>
+         <div class="accordion" id="accordionHelp">
+            <div class="accordion-item">
+               <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                     data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                     aria-controls="panelsStayOpen-collapseOne">
+                     How can I apply for Educational Assistance?
+                  </button>
+               </h2>
+               <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" style="color: white;">
+                  <div class="accordion-body">
+                     <p class="content">
+                        By clicking the login button in the upper right corner of the homepage, you must first create an
+                        account. Once the required information has been completed, you will need to wait for an email
+                        notice in order to access your account. Finally, the necessary documents are now available for
+                        upload.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="accordion-item">
+               <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                     data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                     aria-controls="panelsStayOpen-collapseThree">
+                     How can I create account?
+                  </button>
+               </h2>
+               <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                     <p class="content">
+                        On the upper right side of the website you can see the Login button, click it and find the "Sign
+                        up" link button.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="accordion-item">
+               <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                     data-bs-target="#panelsStayOpen-collapseEighteen" aria-expanded="false"
+                     aria-controls="panelsStayOpen-collapseEighteen">
+                     How can I update my profile information?
+                  </button>
+               </h2>
+               <div id="panelsStayOpen-collapseEighteen" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                     <p class="content">
+                        After logging in, on the profile button, find "edit profile", after changing your desired
+                        information, click save changes.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="accordion-item">
+               <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                     data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                     aria-controls="panelsStayOpen-collapseFour">
+                     I forgot my password. How can I reset it?
+                  </button>
+               </h2>
+               <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                     <p class="content">
+                        On the login/sign up page, click on the 'Forgot Password' and the administrator will
+                        give you an
+                        email with instructions on resetting your password.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- Requirements Submission -->
+
+         <div class="category">Requirements Submission</div>
+         <div class="accordion" id="accordionHelp">
+            <div class="accordion-item">
+               <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                     data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="true"
+                     aria-controls="panelsStayOpen-collapseFive">
+                     What type of file can I upload?
+                  </button>
+               </h2>
+               <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show">
+                  <div class="accordion-body">
+                     <p class="content">
+                        For documents, you must only upload a ".pdf" file. While for images, you may submit images in
+                        ".jpg",".jpeg",".png" file format.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="accordion-item">
+               <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                     data-bs-target="#panelsStayOpen-collapseFourteen" aria-expanded="false"
+                     aria-controls="panelsStayOpen-collapseFourteen">
+                     How can I submit my requirements?
+                  </button>
+               </h2>
+               <div id="panelsStayOpen-collapseFourteen" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                     <ul>
+                        <li>As an applicant, you may click the Applicant requirements button on the left side of the
+                           page and upload the required documents.</li>
+                        <li>As a maintainer, you may click the Renewal requirements button on the left side of the page
+                           and upload the required documents.</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="accordion-item">
+               <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                     data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false"
+                     aria-controls="panelsStayOpen-collapseSeven">
+                     I uploaded correct file but why does it not proceed?
+                  </button>
+               </h2>
+               <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                     <p class="content">
+                        You may be uploading a large file. This website only accepts file that has maximum space of
+                        25MB.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- Scholarship Approval -->
+         <div class="category">Scholarship Approval</div>
+         <div class="accordion" id="accordionHelp">
+            <div class="accordion-item">
+               <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                     data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="true"
+                     aria-controls="panelsStayOpen-collapseEight">
+                     How do I get notified if my application is accepted?
+                  </button>
+               </h2>
+               <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse show">
+                  <div class="accordion-body">
+                     <p class="content">
+                        You will get a notification via gmail if you we're accepted or not.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="accordion-item">
+               <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                     data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="false"
+                     aria-controls="panelsStayOpen-collapseNine">
+                     Can I still apply for scholarship even if I did not get accepted?
+                  </button>
+               </h2>
+               <div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                     <p class="content">
+                        You may still apply if one of your siblings finished scholarship programs, but if you have a
+                        failing grade you may not be able to apply again.
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+
+            <!-- Releasing of Grants -->
+
+            <div class="category">Releasing of Grants</div>
+            <div class="accordion" id="accordionHelp">
+               <div class="accordion-item">
+                  <h2 class="accordion-header">
+                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseFifteen" aria-expanded="true"
+                        aria-controls="panelsStayOpen-collapseFifteen">
+                        How will I know if scholarship grants will be released?
+                     </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseFifteen" class="accordion-collapse collapse show">
+                     <div class="accordion-body">
+                        <p class="content">
+                           You can check it on the schedule of events located below the homepage.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+   </section>
+
+   <div class="footer">
+      <div class="container">
+         <div class="row justify-content-between gy-3">
+            <div class="col-auto">
+               <p class="mb-0">© Tanauan Iskonnect</p>
+            </div>
+            <div class="col-auto">
+               <p class="mb-0">Capstone | BSIT 4-1</p>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"></script>
+
+   <script>
+      document.addEventListener("DOMContentLoaded", function () {
+         const navbar = document.querySelector(".navbar");
+         const navbarLinks = document.querySelectorAll(".navbar-nav a");
+         const wrapper = document.querySelector('.wrapper');
+         const overlay = document.querySelector('.overlay');
+         const contentContainer = document.querySelector('.content-container'); // Add this line
+         const body = document.body;
+         const navbarToggler = document.querySelector(".navbar-toggler");
+         const navbarIconBars = document.querySelectorAll(".navbar-toggler-icon-bar");
+         const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+         const btnPopup = document.querySelector('.btnLogin-popup');
+         const assistanceModals = document.querySelectorAll(".assistance-model");
+         const imgCards = document.querySelectorAll(".img-card");
+         const assistanceCloseBtns = document.querySelectorAll(".assistance-close-btn");
+
+         function closeNavbar() {
+            if (window.innerWidth <= 991) {
+               navbarToggler.click();
+            }
+         }
+
+         function showAssistanceModal(modalClick) {
+            assistanceModals[modalClick].classList.add("active");
+            body.classList.add('popup-open');
+         }
+
+         navbarLinks.forEach(link => {
+            link.addEventListener("click", () => {
+               closeNavbar();
+            });
+         });
+
+         window.addEventListener("scroll", function () {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+               navbar.classList.add("shrink-navbar");
+               scrollToTopBtn.style.display = "block";
+            } else {
+               navbar.classList.remove("shrink-navbar");
+               scrollToTopBtn.style.display = "none";
+            }
+         });
+
+         scrollToTopBtn.addEventListener("click", function () {
+            document.documentElement.scrollTop = 0;
+            navbar.classList.remove("shrink-navbar");
+         });
+
+
+         navbarToggler.addEventListener("click", function () {
+            navbarToggler.classList.toggle("active");
+            navbarIconBars.forEach(bar => {
+               bar.classList.toggle("active");
+            });
+
+            contentContainer.classList.toggle('body-blur');
+            overlay.style.display = overlay.style.display === 'none' ? 'block' : 'none';
+         });
+
+
+         navbarToggler.addEventListener("click", function () {
+            body.classList.toggle("popup-open");
+            overlay.classList.toggle("active-overlay");
+
+            document.querySelector('.overlay-blur').classList.toggle("active-overlay");
+         });
+      });
+
+   </script>
+
+
+</body>
+
+</html>
