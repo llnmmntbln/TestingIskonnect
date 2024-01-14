@@ -340,7 +340,6 @@
                         <div class="form-group">
     <button type="button" class="btn-sbmt" onclick="submitAndRedirect()">Create Account</button>
 </div>
-                        </div>
 
                     </div>
                 </div>
@@ -362,8 +361,10 @@
     </div>
 
 <script>
-    function submitAndRedirect() {
-        if (validateForm()) {
+   function submitAndRedirect() {
+        var isValid = validateForm();
+
+        if (isValid) {
             window.location.href = 'error page.html';
         }
     }
