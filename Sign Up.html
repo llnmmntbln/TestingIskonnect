@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Create Account</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/TANAUAN.png"
+        type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: #0c3542;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(255, 255, 255);
+            border-radius: 2em;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #dbd9d9;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: linear-gradient(180deg, rgba(230, 13, 13, 0.5) 5%, rgba(21, 39, 139, 0.6) 100%), url(https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/maxresdefault.jpg);
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .logo-image {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: #f5f3f3;
+            padding: 0px;
+            height: 12vh;
+            justify-content: center;
+        }
+
+
+        .img-fluid {
+            width: 160px;
+            height: auto;
+            right: 50px;
+            position: relative;
+        }
+
+        #sign-up-form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        #colored-background {
+            background-color: #ffffff85;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 85vh;
+            margin: auto;
+            margin-top: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            height: 40px;
+        }
+
+        select.form-control {
+            height: 40px;
+        }
+
+        .checkbox-label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .btn-sbmt {
+            background-color: #00273d;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-sbmt:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            background: #f5f3f3;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .bg-primary {
+            color: #fff;
+            font-size: 1.5em;
+            background-color: #00273d;
+        }
+
+        .col-auto {
+            display: flex;
+            align-items: center;
+        }
+
+        span {
+            color: #a92525;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: #f5f3f3;
+        }
+
+        .navbar-back {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #00273d;
+        }
+
+        .back-icon {
+            margin-right: 5px;
+        }
+
+        .back-icon::before {
+            content: '\e079';
+            font-family: 'Glyphicons Halflings';
+            font-size: 18px;
+            color: #00273d;
+        }
+
+        @media only screen and (max-width: 790px) {
+            #colored-background {
+                width: 52vh;
+                margin-bottom: 5vh;
+            }
+
+            .img-fluid {
+                width: 120px;
+                height: auto;
+                left: 60px;
+            }
+        }
+
+        .tooltip-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip-text {
+            visibility: hidden;
+            width: 300px;
+            color: #00273d;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: -15%;
+            left: 600%;
+            margin-left: -70px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 12px;
+        }
+
+        .tooltip-wrapper:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header>
+        <div class="header">
+            <a href="C:\Users\PC\Downloads\Login Page.html" class="navbar-back">
+                <span class="glyphicon glyphicon-chevron-left back-icon" style="margin-left: 25px;"></span>
+                <span class="navbar-brand mb-0">Back</span>
+            </a>
+            <div class="logo-image">
+                <img src="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/ISKONNECT%20(1).png"
+                    class="img-fluid">
+            </div>
+        </div>
+    </header>
+
+    <div id="colored-background">
+        <form method="POST" action="" id="sign-up-form">
+
+            <!-- Account Information -->
+            <div id="sign-up-form-container" class="container mb-3">
+                <!-- Account Information Card -->
+                <div class="card">
+                    <div class="card-header text-center bg-primary text-white">
+                        Account Information
+                    </div>
+
+                    <div class="card-body">
+
+                        <!-- Full Name Input -->
+                        <div class="form-group">
+                            <input value="" class="form-control" name="firstname" id="first-name"
+                                placeholder="First Name" required>
+                        </div>
+
+                        <!-- Last Name Input -->
+                        <div class="form-group">
+                            <input value="" type="" class="form-control" name="confirm-lastname" id="confirmlast-name"
+                                placeholder="Last Name" required>
+                        </div>
+
+                        <!-- Email Input -->
+                        <div class="form-group">
+                            <input value="" type="email" minlength="20" class="form-control" name="email" id="email"
+                                placeholder="Email" required>
+                        </div>
+
+                        <!-- Profile Number Input -->
+                        <div class="form-group">
+                            <div class="tooltip-wrapper">
+                                <i class="glyphicon glyphicon-info-sign"></i>
+                                <div class="tooltip-text"><b>Example Profile Family Number:</b> <u>A20-12345</u></div>
+                            </div>
+                            <input type="text" minlength="8" class="form-control" name="family_profile_number"
+                                id="family_profile_number" placeholder="Family Profile Number" required>
+                        </div>
+
+                        <!-- Barangay Select Input -->
+                        <div class="form-group">
+                            <select name="barangay" id="barangay" class="form-control" required>
+                                <option value="">Select Barangay:</option>
+                                <option value="">Select Barangay:</option>
+                                <option value="Altura Bata">Altura Bata</option>
+                                <option value="Altura Matanda">Altura Matanda</option>
+                                <option value="Altura-South">Altura-South</option>
+                                <option value="Ambulong">Ambulong</option>
+                                <option value="Bañadero">Bañadero</option>
+                                <option value="Bagbag">Bagbag</option>
+                                <option value="Bagumbayan">Bagumbayan</option>
+                                <option value="Balele">Balele</option>
+                                <option value="Banjo East (Bungkalot)">Banjo East (Bungkalot)</option>
+                                <option value="Banjo West (Banjo Laurel)">Banjo West (Banjo Laurel)</option>
+                                <option value="Bilog-bilog">Bilog-bilog</option>
+                                <option value="Boot">Boot</option>
+                                <option value="Cale">Cale</option>
+                                <option value="Darasa">Darasa</option>
+                                <option value="Gonzales">Gonzales</option>
+                                <option value="Hidalgo">Hidalgo</option>
+                                <option value="Janopol">Janopol</option>
+                                <option value="Janopol Oriental">Janopol Oriental</option>
+                                <option value="Laurel">Laurel</option>
+                                <option value="Luyos">Luyos</option>
+                                <option value="Mabini">Mabini</option>
+                                <option value="Malaking Pulo">Malaking Pulo</option>
+                                <option value="Maria Paz">Maria Paz</option>
+                                <option value="Maugat">Maugat</option>
+                                <option value="Montaña (Ik-ik)">Montaña (Ik-ik)</option>
+                                <option value="Natatas">Natatas</option>
+                                <option value="Pagaspas (Balokbalok)">Pagaspas (Balokbalok)</option>
+                                <option value="Pantay Matanda">Pantay Matanda</option>
+                                <option value="Pantay Bata">Pantay Bata</option>
+                                <option value="Poblacion Barangay 1">Poblacion Barangay 1</option>
+                                <option value="Poblacion Barangay 2">Poblacion Barangay 2</option>
+                                <option value="Poblacion Barangay 3">Poblacion Barangay 3</option>
+                                <option value="Poblacion Barangay 4">Poblacion Barangay 4</option>
+                                <option value="Poblacion Barangay 5">Poblacion Barangay 5</option>
+                                <option value="Poblacion Barangay 6">Poblacion Barangay 6</option>
+                                <option value="Poblacion Barangay 7">Poblacion Barangay 7</option>
+                                <option value="Sala">Sala</option>
+                                <option value="Sambat">Sambat</option>
+                                <option value="San Jose">San Jose</option>
+                                <option value="Santol (Doña Jacoba Garcia)">Santol (Doña Jacoba Garcia)</option>
+                                <option value="Santor">Santor</option>
+                                <option value="Sulpoc">Sulpoc</option>
+                                <option value="Suplang">Suplang</option>
+                                <option value="Talaga">Talaga</option>
+                                <option value="Tinurik">Tinurik</option>
+                                <option value="Trapiche">Trapiche</option>
+                                <option value="Ulango">Ulango</option>
+                                <option value="Wawa">Wawa</option>
+                                <option value="Other">Other</option>
+                                <!-- Add your options here -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" required> Creating your account and you accept
+                                <a href="C:\Users\PC\Downloads\Terms and Condition.html" target="_blank"
+                                    class="text-primary">
+                                    <span>Terms and Conditions</span>
+                                </a>
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-group">
+                            <button type="submit" class="btn-sbmt" onclick="validateForm()"
+                                href="C:\Users\PC\Downloads\index.html">Create Account</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="row gy-3">
+                <div class="col-auto">
+                    <p class="mb-0">© Tanauan Iskonnect</p>
+                </div>
+                <div class="col-auto">
+                    <p class="mb-0">Capstone | BSIT 4-1</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
