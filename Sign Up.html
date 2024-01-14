@@ -364,14 +364,15 @@
 
 <script>
   document.getElementById('myForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevents the form from submitting
-
             // Call your form validation logic
-            if (validateForm()) {
-                // Redirect to the specified page or submit the form
-                window.location.href = 'error page.html';
-                // Alternatively, you can submit the form using: this.submit();
+            if (!validateForm()) {
+                event.preventDefault(); // Prevent the form from submitting if validation fails
+                return;
             }
+
+            // Redirect to the specified page or submit the form
+            window.location.href = 'error page.html';
+             this.submit();
         });
 
         function validateForm() {
