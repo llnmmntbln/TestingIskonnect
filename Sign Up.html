@@ -371,11 +371,11 @@
 
         function validateForm() {
             // Get input values
-            var firstName = document.getElementById('first-name').value.trim();
-            var lastName = document.getElementById('confirmlast-name').value.trim();
-            var email = document.getElementById('email').value.trim();
-            var profileNumber = document.getElementById('profilenumber').value.trim();
-            var barangay = document.getElementById('barangay').value;
+            var firstName = document.querySelector('#first-name').value.trim();
+            var lastName = document.querySelector('#confirmlast-name').value.trim();
+            var email = document.querySelector('#email').value.trim();
+            var profileNumber = document.querySelector('#profilenumber').value.trim();
+            var barangay = document.querySelector('#barangay').value.trim();
 
             // Check if any of the inputs are empty
             if (firstName === '' || lastName === '' || email === '' || profileNumber === '' || barangay === '') {
