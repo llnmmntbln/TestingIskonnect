@@ -337,7 +337,7 @@
                         </div>
 
                         <!-- Submit Button -->
-                        <form id="myForm">
+                       <form id="myForm" action="error page.html" method="POST">
         <div class="form-group">
             <button type="submit" class="btn-sbmt">Create Account</button>
         </div>
@@ -363,16 +363,11 @@
     </div>
 
 <script>
-  document.getElementById('myForm').addEventListener('submit', function (event) {
+ document.getElementById('myForm').addEventListener('submit', function (event) {
             // Call your form validation logic
             if (!validateForm()) {
                 event.preventDefault(); // Prevent the form from submitting if validation fails
-                return;
             }
-
-            // Redirect to the specified page or submit the form
-            window.location.href = 'error page.html';
-             this.submit();
         });
 
         function validateForm() {
