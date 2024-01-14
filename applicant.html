@@ -362,7 +362,8 @@
             margin-top: 4vh;
             width: 75%;
             margin-right: 3%;
-            height: 50vh;
+            height: 60vh;
+            padding: 35px 10px 5px 10px;
         }
 
         #renewalLink {
@@ -370,14 +371,24 @@
             color: rgb(104, 102, 102);
             background: gray;
         }
-
+         @media screen and (max-width: 450px) {
+          div#main.content {
+            margin: 4vh 10px 0px;
+            width: 96%;
+            height: 70vh;
+            padding: 0;
+        }
+         }
         @media screen and (max-width: 690px) {
             div#main.content {
                 margin: 4vh 8px 0px;
                 width: 96%;
-                height: 50vh;
+                height: 60vh;
+                padding: 0;
             }
-
+            .custom-file-upload {
+                width: 40%;
+            }
             .table-title {
                 font-size: 1.3em;
             }
