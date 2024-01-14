@@ -331,7 +331,20 @@
     
 <script>
     function createAccount() {
-        window.location.href = "login page.html";
+        
+        var firstName = document.getElementById("first-name").value.trim();
+        var lastName = document.getElementById("confirmlast-name").value.trim();
+        var email = document.getElementById("email").value.trim();
+        var profileNumber = document.getElementById("profilenumber").value.trim();
+        var barangay = document.getElementById("barangay").value;
+
+
+        if (firstName === "" || lastName === "" || email === "" || profileNumber === "" || barangay === "") {
+            alert("Please fill in all required fields.");
+        } else {
+
+            window.location.href = "login page.html";
+        }
     }
 </script>
     
