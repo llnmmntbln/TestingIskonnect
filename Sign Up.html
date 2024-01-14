@@ -362,29 +362,15 @@
 
 <script>
  function submitAndRedirect() {
-        // Your form validation logic goes here
-        // For example, you can add the validation logic here
         var isValid = validateForm();
 
-        // If validation passes, redirect to the specified page
         if (isValid) {
             window.location.href = 'error page.html';
         }
     }
 
     function validateForm() {
-        var firstName = document.querySelector('#first-name').value.trim();
-            var lastName = document.querySelector('#confirmlast-name').value.trim();
-            var email = document.querySelector('#email').value.trim();
-            var profileNumber = document.querySelector('#profilenumber').value.trim();
-            var barangay = document.querySelector('#barangay').value.trim();
-
-            // Check if any of the inputs are empty
-            if (firstName === '' || lastName === '' || email === '' || profileNumber === '' || barangay === '') {
-                alert('Please fill out all fields before submitting.');
-                return false; // Validation fails
-            }
-        
+      
         return true;
     }
 </script>
