@@ -337,9 +337,11 @@
                         </div>
 
                         <!-- Submit Button -->
-                         <div class="form-group">
-        <button type="button" class="btn-sbmt" onclick="submitAndRedirect()">Create Account</button>
-    </div>
+                        <form id="myForm">
+        <div class="form-group">
+            <button type="submit" class="btn-sbmt">Create Account</button>
+        </div>
+    </form>
 
                     </div>
                 </div>
@@ -361,13 +363,16 @@
     </div>
 
 <script>
-   function submitAndRedirect() {
+  document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevents the form from submitting
+
             // Call your form validation logic
             if (validateForm()) {
-                // Redirect to the specified page
+                // Redirect to the specified page or submit the form
                 window.location.href = 'error page.html';
+                // Alternatively, you can submit the form using: this.submit();
             }
-        }
+        });
 
         function validateForm() {
             // Get input values
