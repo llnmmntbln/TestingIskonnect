@@ -435,11 +435,17 @@
 
             .dropdown {
                 border-radius: inherit;
-                height: 45vh;
+                height: 50vh;
                 border-bottom-left-radius: 15px;
                 border-bottom-right-radius: 15px;
             }
 
+              @media screen and (max-width: 390px) {
+             .dropdown {
+                 height: 60vh;
+             }
+        }
+            
             .nav-link.active {
                 width: 100%
             }
